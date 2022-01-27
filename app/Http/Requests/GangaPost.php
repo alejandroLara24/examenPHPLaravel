@@ -28,10 +28,10 @@ class GangaPost extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'url' => 'required',
-            'category_id' => 'required|numeric|min:1|max:3',
+            'category_id' => 'required|numeric|exists:categories,id',
             'points' => 'required|numeric',
             'price' => 'required|numeric',
-            'discount_price' => 'required|numeric',
+            'discount_price' => 'required|numeric|gt:0|lt:price',
             'available' => 'required',
         ];
     }

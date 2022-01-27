@@ -11,7 +11,8 @@ class GangaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin')->except('show');
+        $this->middleware('auth');
+        $this->middleware('admin')->except('index','show');
     }
 
     /**
@@ -21,7 +22,9 @@ class GangaController extends Controller
      */
     public function index()
     {
-        //
+        $gangesCategories = Ganga::orderByRaw('(price - discount_price) / price')->take(8)->get()->groupBy('category_id');
+        $categories = Category::all();
+        return view('ganga.index', compact('gangesCategories','categories'));
     }
 
     /**

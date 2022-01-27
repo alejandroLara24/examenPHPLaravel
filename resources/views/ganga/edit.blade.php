@@ -86,11 +86,16 @@
 
                 @endif
             </div>
-            <!--<div class="form-group">
-                <label for="PhotoFile">Puja Foto</label>
-                <input type="file" name="photo" value="{{ $old_img??$gangaEdit->img }}" class="form-control-file" id="PhotoFile">
+            <div class="form-group">
+                <label for="photo">Puja Foto</label>
+                <input type="file" name="photo" value="{{ $old_img??$gangaEdit->img }}" class="form-control-file" id="photo">
+                @if ($errors->has('img'))
+                    <div class="text-danger">
+                        {{ $errors->first('img') }}
+                    </div>
+                @endif
             </div>
-            <input type="hidden" name="MAX_FILE_SIZE" value="1000000">-->
+            <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </section>

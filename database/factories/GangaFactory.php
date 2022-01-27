@@ -16,7 +16,7 @@ class GangaFactory extends Factory
     {
         return [
             'title' => $this->faker->text(20),
-            'description' => $this->faker->paragraph(),
+            'description' => $this->faker->text(100),
             'url' => $this->faker->url(),
             'category_id' => Category::inRandomOrder()->first()->id,
             'points' => $this->faker->randomNumber(5),

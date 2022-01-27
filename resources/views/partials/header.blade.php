@@ -73,6 +73,9 @@
                                                 </ul>
                                             </li>
                                             <li><a href="/contact">Contacta amb nosaltres</a></li>
+                                            @if(Auth::user())
+                                            <li><a href="{{ route('ganga.index') }}">Ofertas Calientes</a></li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>
